@@ -186,6 +186,7 @@ function handleDrop(e) {
         if (taskIndex > -1) {
             if (target === leftBox) {
                 tasks[taskIndex].status = "pending";
+                tasks[taskIndex].priority = "medium";
             } else if (target === middleBox) {
                 tasks[taskIndex].status = "pending";
                 tasks[taskIndex].priority = "high";
