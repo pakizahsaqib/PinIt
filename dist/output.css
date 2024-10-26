@@ -655,8 +655,8 @@ video {
   height: 1.5rem;
 }
 
-.h-\[360px\]{
-  height: 360px;
+.h-\[200px\]{
+  height: 200px;
 }
 
 .min-h-screen{
@@ -999,6 +999,10 @@ video {
 
   .sm\:h-8{
     height: 2rem;
+  }
+
+  .sm\:h-\[360px\]{
+    height: 360px;
   }
 
   .sm\:w-8{
