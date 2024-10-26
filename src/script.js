@@ -12,6 +12,9 @@ const lists = document.querySelectorAll('.list');
 const rightBox = document.getElementById('right');
 const leftBox = document.getElementById('left');
 const middleBox = document.getElementById('middle');
+const b1 = document.getElementById('b1');
+const b2 = document.getElementById('b2');
+const b3 = document.getElementById('b3');
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -19,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 const createNotes = (task, index) => {
     const note = document.createElement("div");
-    note.classList.add("drag","cursor-grab", "p-4", "rounded-bl-lg", "rotate-1", "relative", "mb-4", "flex", "flex-col", "justify-between","font-shantell", "text-sm", "md:text-md", "lg:text-lg", "shadow-3xl");
+    note.classList.add("drag","max-w-sm", "cursor-grab", "p-4", "rounded-bl-lg", "rotate-1", "relative", "mb-4", "flex", "flex-col", "justify-between","font-shantell", "text-sm", "md:text-md", "lg:text-lg", "shadow-3xl");
     note.draggable = true;
     // Set the background color based on priority
     if(task.priority === "high") {
@@ -48,19 +51,19 @@ const createNotes = (task, index) => {
 
     // Create icons and append to controls
     const trashIcon = document.createElement("i");
-    trashIcon.className = "fa-solid fa-trash cursor-pointer text-sm md:text-md lg:text-lg";
+    trashIcon.className = "fa-solid fa-trash cursor-pointer text-sm md:text-md lg:text-lg hover:text-red-500";
     trashIcon.addEventListener("click", () => deleteNote(index)); // Add delete functionality
     controls.appendChild(trashIcon);
 
     const editIcon = document.createElement("i");
-    editIcon.className = "fa-solid fa-pen-to-square cursor-pointer text-sm md:text-md lg:text-lg";
+    editIcon.className = "fa-solid fa-pen-to-square cursor-pointer text-sm md:text-md lg:text-lg hover:text-red-500";
     editIcon.addEventListener("click", () => editNote(index)); // Add edit functionality
     addbtn.innerText= "Add Task";
     controls.appendChild(editIcon);
 
     // Circle icon to mark task as completed or pending
     const circleIcon = document.createElement("i");
-    circleIcon.className = `fa-circle text-sm md:text-md lg:text-lg cursor-pointer ${task.status === "pending" ? "fa-regular" : "fa-solid"}`;
+    circleIcon.className = `fa-circle text-sm md:text-md lg:text-lg hover:text-red-500 cursor-pointer ${task.status === "pending" ? "fa-regular" : "fa-solid"}`;
     circleIcon.addEventListener("click", () => {
         // Toggle task status
         task.status = (task.status === "pending" || (task.status === "pending" && task.priority === "urgent" ) ? "completed" : "pending");
@@ -92,21 +95,55 @@ const clearNoteBody = ()=>{
     middleBox.innerHTML = "";
     rightBox.innerHTML = "";
 }
+function highlightButton(button) {
+    [all, pending, urgent, completed].forEach(btn => {
+        btn.classList.remove("bg-red-500")
+        btn.classList.add("bg-neutral-700")
+        btn.classList.add("shadow-md");
+        btn.classList.remove("translate-y-[2px]");
+});
+    button.classList.add("bg-red-500");
+    button.classList.add("translate-y-[2px]");
+    button.classList.remove("bg-neutral-700");
+    button.classList.add("shadow-sm")
+}
 urgent.addEventListener("click", () => {
+    highlightButton(urgent);
     clearNoteBody();
     urgentNotes();
+    b2.classList.add("block")
+    b2.classList.remove("hidden");
+    b1.classList.add("hidden")
+    b3.classList.add("hidden")
 })
-
 all.addEventListener('click', () => {
+    highlightButton(all);
     renderNotes();
     console.log("All Clicked");
+    b1.classList.add("block");
+    b2.classList.add("block");
+    b3.classList.add("block");
+    b1.classList.remove("hidden");
+    b2.classList.remove("hidden");
+    b3.classList.remove("hidden");
+
 });
 pending.addEventListener('click', () => {
+    highlightButton(pending);
     clearNoteBody();
     pendingNotes();
     console.log("Pending Clicked");
+    b1.classList.add("block");
+    b1.classList.remove("hidden");
+    b2.classList.add("hidden");
+    b3.classList.add("hidden");
 });
 completed.addEventListener('click', () => {
+    b1.classList.add("hidden");
+    b2.classList.add("hidden");
+    b3.classList.remove("hidden");
+    b3.classList.add("block");
+    highlightButton(completed);
     clearNoteBody();
     completedNotes();
     console.log("Completed Clicked");
@@ -186,7 +223,7 @@ function handleDrop(e) {
         if (taskIndex > -1) {
             if (target === leftBox) {
                 tasks[taskIndex].status = "pending";
-                tasks[taskIndex].priority = "medium";
+                tasks[taskIndex].priority = "low";
             } else if (target === middleBox) {
                 tasks[taskIndex].status = "pending";
                 tasks[taskIndex].priority = "high";
