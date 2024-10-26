@@ -27,28 +27,28 @@
     </section>
 
     <!-- Task Filter Section -->
-    <section class="task-filter-section grid grid-cols-2 sm:flex sm:flex-row justify-center items-center gap-3 sm:gap-6">
-      <button id="all" class="bg-neutral-700 hover:bg-black text-sm md:text-md lg:text-lg text-white px-3 py-1 rounded-md w-full shadow-md  shadow-gray-600 hover:translate-y-[2px]">All</button>
-      <button id="completed" class="bg-neutral-700 hover:bg-black text-sm md:text-md lg:text-lg text-white px-3 py-1 rounded-md w-full shadow-md shadow-gray-600 hover:translate-y-[2px]">Completed</button>
-      <button id="pending" class="bg-neutral-700 hover:bg-black text-sm md:text-md lg:text-lg text-white px-3 py-1 rounded-md w-full shadow-md shadow-gray-600 hover:translate-y-[2px]">Pending</button>
+    <section class="task-filter-section grid grid-cols-2 sm:grid-cols-4 justify-center items-center gap-3 sm:gap-6">
+      <button id="all" class="bg-neutral-700 text-sm md:text-md lg:text-lg text-white px-3 py-1 rounded-md w-full shadow-md  shadow-gray-600 hover:bg-red-500 hover:translate-y-[2px]">All</button>
+      <button id="completed" class="bg-neutral-700 text-sm md:text-md lg:text-lg text-white px-3 py-1 rounded-md w-full shadow-md shadow-gray-600   hover:bg-red-500 hover:translate-y-[2px]">Completed</button>
+      <button id="pending" class="bg-neutral-700 text-sm md:text-md lg:text-lg text-white px-3 py-1 rounded-md w-full shadow-md shadow-gray-600  hover:bg-red-500 hover:translate-y-[2px]">Pending</button>
       <button id="urgent" class="bg-neutral-700 text-sm md:text-md lg:text-lg text-white px-3 py-1 rounded-md w-full shadow-md shadow-gray-600 hover:translate-y-[2px] hover:bg-red-500">Urgent</button>
     </section>
 
-   <div class="container w-full flex flex-col lg:flex-row justify-center items-center mt-6 p-2 bg-white">
+   <div class="container flex flex-col lg:flex-row justify-center items-center mt-6 p-2">
       
-      <div class="m-4 w-full max-w-md flex-1 border-black border-2">
+      <div id="b1" class="m-4 w-full max-w-md flex-1 border-black border-2">
           <h1 class="text-center w-full text-md md:text-xl p-4 text-white bg-neutral-700 hover:bg-black">Pending</h1>
-          <div id="left" dropzone="true" class="w-full bg-neutral-50 h-[200px] sm:h-[360px] p-8 overflow-scroll"></div>
+          <div id="left" dropzone="true" class="w-full bg-white h-[200px] sm:h-[360px] m-auto p-8 overflow-scroll"></div>
       </div>
       
-      <div class="m-4 w-full max-w-md flex-1 border-red-500  border-2">
-       <h1 class="text-center w-full text-md md:text-xl p-4 text-white bg-red-500 hover:bg-red-600">Urgent</h1>
-        <div id="middle" dropzone="true" class="w-full  bg-neutral-50 h-[200px] sm:h-[360px] p-8 overflow-scroll"></div>
-      </div>
+      <div id="b2" class="m-4 w-full max-w-md flex-1 border-black border-2">
+          <h1 class="text-center w-full text-md md:text-xl p-4 text-white bg-neutral-700 hover:bg-black">Urgent</h1>
+          <div id="middle" dropzone="true" class="w-full bg-white h-[200px] sm:h-[360px] m-auto  p-8 overflow-scroll"></div>
+        </div>
 
-      <div class="m-4 w-full max-w-md flex-1 border-black border-2">
-        <h1 class="text-center w-full text-md md:text-xl  p-4 text-white bg-neutral-700 hover:bg-black">Completed</h1>
-        <div id="right" dropzone="true" class="w-full bg-neutral-50 h-[200px] sm:h-[360px] p-8 overflow-scroll"></div>
+      <div id="b3" class="m-4 w-full max-w-md flex-1 border-black border-2">
+          <h1 class="text-center w-full text-md md:text-xl  p-4 text-white bg-neutral-700 hover:bg-black">Completed</h1>
+          <div id="right" dropzone="true" class="w-full bg-white h-[200px] sm:h-[360px] m-auto  p-8 overflow-scroll"></div>
       </div>
 
     </div>
