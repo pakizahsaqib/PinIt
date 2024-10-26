@@ -14,7 +14,9 @@ const leftBox = document.getElementById('left');
 const middleBox = document.getElementById('middle');
 
 
-
+document.addEventListener("DOMContentLoaded", () => {
+    renderNotes(); // Call renderNotes to load saved tasks on page load
+});
 const createNotes = (task, index) => {
     const note = document.createElement("div");
     note.classList.add("drag","cursor-grab", "p-4", "rounded-bl-lg", "rotate-1", "relative", "mb-4", "flex", "flex-col", "justify-between","font-shantell", "text-sm", "md:text-md", "lg:text-lg", "shadow-3xl");
@@ -35,14 +37,14 @@ const createNotes = (task, index) => {
     note.appendChild(noteContent);
     const pin = document.createElement("img");
     pin.src = "./icon.png";
-    pin.classList.add("absolute", "top-1","left-2","w-8","h-8", "rotate-2", "opacity-80", "hover:translate-x-[-1px]", "hover:translate-y-[-1px]" ,"hover:opacity-90")
+    pin.classList.add("absolute","top-1","left-2","w-6","h-6","sm:w-8","sm:h-8", "rotate-2", "opacity-80", "hover:translate-x-[-1px]", "hover:translate-y-[-1px]" ,"hover:opacity-90")
     note.appendChild(pin);
 
     //note.appendChild(shadow);
 
     // Create controls div
     const controls = document.createElement("div");
-    controls.classList.add("controls", "flex", "justify-end", "items-end", "gap-2", "mt-4");
+    controls.classList.add("controls", "flex", "justify-end", "items-end", "gap-1", "md:gap-2", "mt-4");
 
     // Create icons and append to controls
     const trashIcon = document.createElement("i");
@@ -215,4 +217,3 @@ const renderNotes = () => {
     saveNotes();
 }
 
-renderNotes();
