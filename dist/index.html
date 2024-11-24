@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./output.css" rel="stylesheet">
+</head>
+<body class="p-0 m-0 box-border w-full min-h-screen font-shantell bg-neutral-100">
+  <!-- App Container -->
+  <div class="app-container w-full flex flex-col items-center p-10">
+    <!-- Header / Title -->
+    <header class="mb-4 sm:mb-8 ">
+      <h1 class="font-shantell text-3xl md:text-4xl lg:text-6xl text-center text-black font-bold"><span class="text-red-500">Pin</span>It</h1>
+      <h2 class=" font-shantell text-md md:text-lg lg:text-xl">Stick. Sort. Done!</h3>
+    </header>
+
+    <!-- Task Input Section -->
+    <section class="task-input-section mx-20 mb-6 border rounded-sm grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-y-[2px] sm:gap-0 ">
+      <input type="text" id="taskInput" class="px-4 py-[5px] col-span-1  sm:col-span-2  border-black border-2 text-sm md:text-md lg:text-lg placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:border-black" placeholder="Add a note..." />
+      <select id="prioritySelector" class="w-full p-2 border-2 border-black bg-white text-gray-700 text-sm md:text-md lg:text-lg focus:outline-none  focus:border-black">
+          <option value="low" class="text-sm md:text-md lg:text-lg">Low Priority</option>
+          <option value="medium" class="text-sm md:text-md lg:text-lg">Medium Priority</option>
+          <option value="high" class="text-sm md:text-md lg:text-lg">High Priority</option>
+      </select>
+
+      <button id="add" class="bg-neutral-700 hover:bg-black text-sm md:text-md lg:text-lg px-3 py-1 text-white">Add Task</button>
+    </section>
+
+    <!-- Task Filter Section -->
+    <section class="task-filter-section grid grid-cols-2 sm:grid-cols-4 justify-center items-center gap-3 sm:gap-6">
+      <button id="all" class="bg-neutral-700 text-sm md:text-md lg:text-lg text-white px-3 py-1 rounded-md w-full shadow-md  shadow-gray-600 hover:bg-red-500 hover:translate-y-[2px]">All</button>
+      <button id="completed" class="bg-neutral-700 text-sm md:text-md lg:text-lg text-white px-3 py-1 rounded-md w-full shadow-md shadow-gray-600   hover:bg-red-500 hover:translate-y-[2px]">Completed</button>
+      <button id="pending" class="bg-neutral-700 text-sm md:text-md lg:text-lg text-white px-3 py-1 rounded-md w-full shadow-md shadow-gray-600  hover:bg-red-500 hover:translate-y-[2px]">Pending</button>
+      <button id="urgent" class="bg-neutral-700 text-sm md:text-md lg:text-lg text-white px-3 py-1 rounded-md w-full shadow-md shadow-gray-600 hover:translate-y-[2px] hover:bg-red-500">Urgent</button>
+    </section>
+
+   <div class="container flex flex-col lg:flex-row justify-center items-center mt-6 p-2">
+      
+      <div id="b1" class="m-4 w-full max-w-md flex-1 border-black border-2">
+          <h1 class="text-center w-full text-md md:text-xl p-4 text-white bg-neutral-700 hover:bg-black">Pending</h1>
+          <div id="left" dropzone="true" class="w-full bg-white h-[200px] sm:h-[360px] m-auto p-8 overflow-scroll"></div>
+      </div>
+      
+      <div id="b2" class="m-4 w-full max-w-md flex-1 border-black border-2">
+          <h1 class="text-center w-full text-md md:text-xl p-4 text-white bg-neutral-700 hover:bg-black">Urgent</h1>
+          <div id="middle" dropzone="true" class="w-full bg-white h-[200px] sm:h-[360px] m-auto  p-8 overflow-scroll"></div>
+        </div>
+
+      <div id="b3" class="m-4 w-full max-w-md flex-1 border-black border-2">
+          <h1 class="text-center w-full text-md md:text-xl  p-4 text-white bg-neutral-700 hover:bg-black">Completed</h1>
+          <div id="right" dropzone="true" class="w-full bg-white h-[200px] sm:h-[360px] m-auto  p-8 overflow-scroll"></div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- JavaScript -->
+  <script src="https://kit.fontawesome.com/f29a740784.js" crossorigin="anonymous"></script>
+  <script src="script.js"></script>
+
+</body>
+</html>
